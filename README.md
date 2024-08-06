@@ -25,7 +25,17 @@ Suffered as a result of trying to show off too much:
 ```
 Code cleanliness ❌ it's a bit messy, not fully documented etc - THIS IS WHAT I SHOULD HAVE FOCUSED ON
 Alembic migration test ❌ the only failing test is the alembic test
+Imports cleaned up ❌
 ```
+
+Other goals. 
+
+I wanted to complete the extra task of restoring deleted tasks but to show off do it in a rabbitmq+celery queue incase lots of tasks need restored. 
+
+
+I feel it is a decent attempt but I am rushing and just have to submit in current state after spending way too much time trying to get mysql and redis going under a tight deadline. 
+
+*Everything should work within a python virtual env for `make run-locally`*
 
 ## Getting Started
 
