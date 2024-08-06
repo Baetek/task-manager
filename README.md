@@ -22,8 +22,10 @@ You can verify switching python version via .env file when using the cluster, Do
 
 Suffered as a result of trying to show off too much:
 
+```
 Code cleanliness ❌ it's a bit messy, not fully documented etc - THIS IS WHAT I SHOULD HAVE FOCUSED ON
 Alembic migration test ❌ the only failing test is the alembic test
+```
 
 ## Getting Started
 
