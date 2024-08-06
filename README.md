@@ -50,7 +50,7 @@ You should be able to:
  3. `source venv/bin/activate`
  4. `make run-locally`, `make test`, `make run-in-cluster`
 
- I left the venv step manual because some IDE's create it for you, but the Makefile will check if an envrionment is active automatically. 
+ I left the venv step manual because some IDE's create it for you, but the Makefile will check if an environment is active automatically. 
 
 ## Config
 
