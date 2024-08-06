@@ -41,32 +41,25 @@ def session():
         db.close()
 
 def test_add_nickname_migration(alembic_config, session):
-    # Apply the initial migration
     upgrade(alembic_config, 'head')
     
-    # Apply the nickname migration
     upgrade(alembic_config, 'e956f1ed505d')
     
-    # Check if the nickname column is added
     inspector = inspect(engine)
     columns = inspector.get_columns('users')
     column_names = [column['name'] for column in columns]
     assert 'nickname' in column_names
 
-    # Verify the index is created
     indexes = inspector.get_indexes('users')
     index_names = [index['name'] for index in indexes]
     assert 'ix_users_nickname' in index_names
 
-    # Rollback the nickname migration
     downgrade(alembic_config, '5bcca2256ac5')
 
-    # Check if the nickname column is removed
     columns = inspector.get_columns('users')
     column_names = [column['name'] for column in columns]
     assert 'nickname' not in column_names
 
-    # Verify the index is removed
     indexes = inspector.get_indexes('users')
     index_names = [index['name'] for index in indexes]
     assert 'ix_users_nickname' not in index_names

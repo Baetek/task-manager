@@ -4,10 +4,12 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 from . import crud, models, schemas
-from .database import db_session, engine, get_redis_client
+from .database import db_session, engine, get_redis_client, Base
 
 
 redis_client = get_redis_client()
+Base.metadata.create_all(bind=engine) # Last minute hack to get things working again around the config system
+# database stopped being populated with tables at the last minute
 
 def create_app(db: Session = Depends(db_session)):
     app = FastAPI()
