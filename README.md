@@ -1,22 +1,29 @@
-python3 -m venv venv
-source venv/bin/activate
+### To hiring manager notes
 
-pip install pip-tools
+Please bear with me, 
 
-echo "fastapi
-uvicorn
-sqlalchemy
-alembic
-pydantic" > requirements.in
+```
+Python 3.9 and 3.10 support ✅
+Correctly apply code formatting, preferably using the Black format ✅
+Apply type annotations ✅ (in most places, not super happy that it's complete)
+Use of a light weight framework ✅
+Tasks must be stored in a database ✅
+Database must be managed by code using migrations ✅
+```
 
-pip-compile --upgrade
+Unfortunately I have chewed off more than I could handle and decided to try get a full prod type setup going with 
+mysql, redis caching of endpoints, all under docker-compose. To show off. Along with configuration of every run-mode via an .env file
 
-pip install -r requirements.txt
+I don't know what I was thinking because all of this together is definitely more than a 1 day job. 
 
-alembic init alembic
-alembic revision --autogenerate -m "Initial migration"
-alembic upgrade head
+you can still try it with `make run-in-cluster`, the real mysql database is not being populated for me for some reason even though I've verified DB_RESET_ON_START=True in that envrionment. 
 
+You can verify switching python version via .env file when using the cluster, Docker will put in the python version specified.
+
+Suffered as a result of trying to show off too much:
+
+Code cleanliness ❌ it's a bit messy, not fully documented etc - THIS IS WHAT I SHOULD HAVE FOCUSED ON
+Alembic migration test ❌ the only failing test is the alembic test
 
 ## Getting Started
 
