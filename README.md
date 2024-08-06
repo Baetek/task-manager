@@ -44,6 +44,14 @@ and use `make run-in-cluster` to run as a docker-compose cluster or
 `make run-locally` if you are running in a Python venv
 or `make test` to run tests
 
+You should be able to:
+ 1. Clone repo
+ 2. `python3 -m venv venv`
+ 3. `source venv/bin/activate`
+ 4. `make run-locally`, `make test`, `make run-in-cluster`
+
+ I left the venv step manual because some IDE's create it for you, but the Makefile will check if an envrionment is active automatically. 
+
 ## Config
 
 Your .env file allows you to set most configurable items for all supported run modes.
